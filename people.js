@@ -73,9 +73,11 @@ const write = (data) => {
 const read = (file) => {
   fs.readFile(file, 'utf-8', (err, data) => {
     const parsed = JSON.parse(data)
+    const names = []
     parsed.map((row) => {
-      console.log(row.name)
+      names.push(row.name)
     })
+    console.log(names)
   })
 }
 

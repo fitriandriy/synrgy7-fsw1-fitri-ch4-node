@@ -5,3 +5,4 @@ write(people)
 read('dummy.txt')
 
 getDetail(2)
+ 
