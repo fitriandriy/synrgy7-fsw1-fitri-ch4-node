@@ -72,12 +72,8 @@ const write = (data) => {
 // array of string
 const read = (file) => {
   fs.readFile(file, 'utf-8', (err, data) => {
-    const parsed = JSON.parse(data)
-    const names = []
-    parsed.map((row) => {
-      names.push(row.name)
-    })
-    console.log(names)
+    const parsed = JSON.parse(data).map((row) => row.name)
+    console.log(parsed)
   })
 }
 
@@ -86,7 +82,7 @@ const getDetail = (id) => {
   fs.readFile('./dummy.txt', 'utf-8', (err, data) => {
     const parsed = JSON.parse(data)
 
-    const result = parsed.filter((row) => row.id === id)
+    const result = parsed.find((row) => row.id === id)
     console.log(result)
   })
 }
