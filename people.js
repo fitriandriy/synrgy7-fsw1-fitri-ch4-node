@@ -69,15 +69,29 @@ const write = (data) => {
   })
 }
 
-const read = () => {
+// array of string
+const read = (file) => {
+  fs.readFile(file, 'utf-8', (err, data) => {
+    const parsed = JSON.parse(data)
+    parsed.map((row) => {
+      console.log(row.name)
+    })
+  })
+}
+
+// return object
+const getDetail = (id) => {
   fs.readFile('./dummy.txt', 'utf-8', (err, data) => {
     const parsed = JSON.parse(data)
-    console.log(parsed)
+
+    const result = parsed.filter((row) => row.id === id)
+    console.log(result)
   })
 }
 
 module.exports = {
   people,
   write,
-  read
+  read,
+  getDetail
 }
